@@ -1,0 +1,45 @@
+   <%= patient = Patient.find(@visit.patient_id)
+        therapist = Therapist.find(@visit.therapist_id)
+				site = Site.find(@visit.site_id)
+        authorization = AuthorizationPeriod.find(@visit.authorization_id)
+        patient_name = patient.first_name + ' ' + patient.last_name
+        therapist_name = therapist.first_name + ' ' + therapist.last_name
+        site_name = site.site_name
+        auth_period = authorization.from_date.to_s[0..-13] + ' to  ' + authorization.to_date.to_s[0..-13] 
+    %>
+
+
+<p>
+  <b>Visit date:</b>
+  <%=h @visit.visit_date %>
+</p>
+
+<p>
+  <b>Patient:</b>
+  <%=h patient_name%>
+</p>
+
+<p>
+  <b>Therapist:</b>
+  <%=h therapist_name%>
+</p>
+<p>
+  <b>Site:</b>
+  <%=h site_name%>
+</p>
+<p>
+  <b>Authorization Period:</b>
+  <%=h auth_period%>
+</p>
+<p>
+  <b>Session Length(in minutes):</b>
+  <%=h @visit.session_length%>
+</p>
+<p>
+  <b>Visit notes:</b>
+  <%=h @visit.visit_notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_visit_path(@visit) %> |
+<%= link_to 'Back', visits_path %>

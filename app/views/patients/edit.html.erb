@@ -1,0 +1,56 @@
+<h1>Editing patient</h1>
+
+<% form_for(@patient) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :address_1 %><br />
+    <%= f.text_field :address_1 %>
+  </p>
+  <p>
+    <%= f.label :address_2 %><br />
+    <%= f.text_field :address_2 %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :contact%><br />
+    <%= f.text_field :contact%>
+  </p>
+  <p>
+    <%= f.label :number_of_visits %><br />
+    <%= f.text_field :number_of_visits %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patient %> |
+<%= link_to 'Back', patients_path %>

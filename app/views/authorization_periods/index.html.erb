@@ -1,0 +1,25 @@
+<h1>Listing Authorization Periods</h1>
+
+<table>
+  <tr>
+    <th>From date</th>
+    <th>To date</th>
+  </tr>
+
+<% @authorization_periods.each do |authorization_period| %>
+  <tr>
+    <td><%=h authorization_period.from_date.to_s[0..-13] %></td>
+    <td><%=h authorization_period.to_date.to_s[0..-13] %></td>
+    <td><%= link_to 'Show', authorization_period %></td>
+    <td><%= link_to 'Edit', edit_authorization_period_path(authorization_period) %></td>
+    <td><%= link_to 'Destroy', authorization_period, :confirm => 'Are you sure? Remember, if an Authorization Period is assigned to a Visit, it cannot be destroyed.', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New authorization_period', new_authorization_period_path %><br/>
+<%= link_to 'View All Visits', visits_path%><br/>
+<%= link_to 'View All Therapists', therapists_path%><br/>
+<%= link_to 'View All Patients', patients_path%><br/>

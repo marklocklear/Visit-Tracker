@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;.
+charset=iso-8859-1" />
+<meta http-equiv="Content-Language" content="en-us" />
+<title>Visit Tracker for Speech-N-Progress</title>
+<%= stylesheet_link_tag "style" %>
+<%= javascript_include_tag 'prototype'%>
+</head>
+<span style="text-align: right">
+  <% form_tag "visits/find" do %>
+    <%= text_field_tag :search_string %>
+    <%= submit_tag "Search Visits By Patient" %>
+  <% end %>
+</span>
+<p style="color: green"><%= notice %></p>
+<body id="snp">
+<div id="container">
+<div id="header">
+<h1>Visit Tracker</h1>
+<h3>v 0.0.1</h3>
+</div>
+<div id="content">
+<%= yield -%>
+</div>
+<div id="sidebar"></div>
+</div>
+</body>
+</html>

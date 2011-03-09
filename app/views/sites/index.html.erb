@@ -1,0 +1,23 @@
+<h1>Listing sites</h1>
+
+<table>
+  <tr>
+    <th>Site name</th>
+  </tr>
+
+<% @sites.each do |site| %>
+  <tr>
+    <td><%=h site.site_name %></td>
+    <td><%= link_to 'Show', site %></td>
+    <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    <td><%= link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'View All Visits', visits_path%><br/>
+<%= link_to 'View All Patients', patients_path%><br/>
+<%= link_to 'View All Therapists', therapists_path%><br/>
+<%= link_to 'View All Authorization Periods', authorization_periods_path%><br/>
+<%= link_to 'New site', new_site_path %>

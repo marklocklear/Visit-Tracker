@@ -1,0 +1,13 @@
+<p>
+  <b>From date:</b>
+  <%=h @authorization_period.from_date %>
+</p>
+
+<p>
+  <b>To date:</b>
+  <%=h @authorization_period.to_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_authorization_period_path(@authorization_period) %> |
+<%= link_to 'Back', authorization_periods_path %>

@@ -1,0 +1,53 @@
+<h1>Editing visit</h1>
+
+<% form_for(@visit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :visit_date %><br />
+    <%= f.datetime_select :visit_date %>
+  </p>
+  </p>
+    <%= f.label :patient%><br />
+    <%=
+      @patients = Patient.find(:all, :order => "first_name")
+      collection_select(:visit, :patient_id, @patients, :id, :first_and_last_name)
+      %>
+  </p>
+ <p>
+    <%= f.label :therapist %><br />
+    <%=
+      @therapists = Therapist.find(:all, :order => :first_name)
+      collection_select(:visit, :therapist_id, @therapists, :id, :first_and_last_name )
+    %>
+  </p>
+ <p>
+    <%= f.label :site%><br />
+    <%=
+			@sites = Site.find(:all, :order => :site_name)
+      collection_select(:visit, :site_id, @sites, :id, :site_name)
+    %>
+  </p>
+   <p>
+    <%= f.label 'Authorization Period'%><br />
+    <%=
+      @authorizations = AuthorizationPeriod.find(:all, :order => :from_date)
+      collection_select(:visit, :authorization_id, @authorizations, :id, :from_and_to_date)
+    %>
+  </p>
+ <p>
+  <p>
+    <%= f.label 'Session Length (in minutes)'%><br />
+    <%= f.text_field :session_length %>
+  </p>
+
+    <%= f.label :visit_notes %><br />
+    <%= f.text_field :visit_notes %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @visit %> |
+<%= link_to 'Back', visits_path %>

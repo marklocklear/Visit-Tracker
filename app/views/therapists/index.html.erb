@@ -1,0 +1,40 @@
+<h1>Listing therapists</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Middle name</th>
+    <th>Last name</th>
+    <th>Address 1</th>
+    <th>Address 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Phone</th>
+  </tr>
+
+<% @therapists.each do |therapist| %>
+  <tr>
+    <td><%=h therapist.first_name %></td>
+    <td><%=h therapist.middle_name %></td>
+    <td><%=h therapist.last_name %></td>
+    <td><%=h therapist.address_1 %></td>
+    <td><%=h therapist.address_2 %></td>
+    <td><%=h therapist.city %></td>
+    <td><%=h therapist.state %></td>
+    <td><%=h therapist.zip %></td>
+    <td><%=h therapist.phone %></td>
+    <td><%= link_to 'Show', therapist %></td>
+    <td><%= link_to 'Edit', edit_therapist_path(therapist) %></td>
+    <td><%= link_to 'Destroy', therapist, :confirm => 'Are you sure? Remember, if a Therapist is assigned to a visit, it cannot be destroyed.', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New therapist', new_therapist_path %><br/>
+<%= link_to 'View All Visits', visits_path%><br/>
+<%= link_to 'View All Patients', patients_path%><br/>
+<%= link_to 'View All Sites', sites_path%><br/>
+<%= link_to 'View All Authorization Periods', authorization_periods_path%>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  visit_date: 2011-03-02 10:05:07
+  patient_id: 1
+  therapist_id: 1
+  visit_notes: MyString
+
+two:
+  visit_date: 2011-03-02 10:05:07
+  patient_id: 1
+  therapist_id: 1
+  visit_notes: MyString

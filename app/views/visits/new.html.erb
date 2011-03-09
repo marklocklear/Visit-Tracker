@@ -1,0 +1,52 @@
+<h1>New visit</h1>
+
+<% form_for(@visit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :visit_date %><br />
+    <%= f.datetime_select :visit_date %>
+  </p>
+    <%= f.label :patient%><br />
+    <%=
+      @patients = Patient.find(:all, :order => "first_name")
+      collection_select(:visit, :patient_id, @patients, :id, :first_and_last_name)
+			#will need some js here that will update a variable when user is chosen from drop down list	
+      %>
+    <%= f.label 'has <pat visit num> visits left in this period.'%><br />
+  </p>
+  <p>
+    <%= f.label :therapist %><br />
+    <%=
+      @therapists = Therapist.find(:all, :order => :first_name)
+      collection_select(:visit, :therapist_id, @therapists, :id, :first_and_last_name )
+    %>
+  </p>
+  <p>
+    <%= f.label :site%><br />
+    <%=
+      @sites = Site.find(:all, :order => :site_name)
+      collection_select(:visit, :site_id, @sites, :id, :site_name)
+    %>
+  </p>
+   <p>
+    <%= f.label 'Authorization Period'%><br />
+    <%=
+      @authorizations = AuthorizationPeriod.find(:all, :order => :from_date)
+      collection_select(:visit, :authorization_id, @authorizations, :id, :from_and_to_date)
+    %>
+  </p>
+ 	<p>
+    <%= f.label 'Session Length(in minutes)'%><br />
+    <%= f.text_field :session_length%>
+  </p>
+  <p>
+    <%= f.label :visit_notes %><br />
+    <%= f.text_field :visit_notes %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', visits_path %>

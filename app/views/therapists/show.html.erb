@@ -1,0 +1,48 @@
+<p>
+  <b>First name:</b>
+  <%=h @therapist.first_name %>
+</p>
+
+<p>
+  <b>Middle name:</b>
+  <%=h @therapist.middle_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @therapist.last_name %>
+</p>
+
+<p>
+  <b>Address 1:</b>
+  <%=h @therapist.address_1 %>
+</p>
+
+<p>
+  <b>Address 2:</b>
+  <%=h @therapist.address_2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @therapist.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @therapist.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @therapist.zip %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @therapist.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_therapist_path(@therapist) %> |
+<%= link_to 'Back', therapists_path %>
